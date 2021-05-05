@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAlatMenuTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('alat_menu', function (Blueprint $table) {
+            $table->unsignedBigInteger('alat_id');
+            $table->unsignedBigInteger('menu_id');
+
+            $table->foreign('alat_id')->references('id')->on('alat')->onDelete('cascade');
+            $table->foreign('menu_id')->references('id')->on('menu')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('alat_menu');
+    }
+}
