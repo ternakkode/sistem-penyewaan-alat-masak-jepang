@@ -37,4 +37,8 @@ class Penyewaan extends Model
     public function menu() {
         return $this->belongsToMany('App\Model\Menu');
     }
+
+    public function alat() {
+        return $this->belongsToMany('App\Model\Alat', 'penyewaan_alat', 'penyewaan_id', 'alat_id')->withPivot('jumlah');
+    }
 }

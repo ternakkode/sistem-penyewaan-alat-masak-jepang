@@ -21,8 +21,9 @@ class CreatePenyewaanTable extends Migration
             $table->longText('alamat');
             $table->unsignedBigInteger('pengiriman_id')->nullable();
             $table->unsignedBigInteger('pembayaran_id')->nullable();
-            $table->dateTime('waktu_mulai');
-            $table->dateTime('waktu_selesai');
+            $table->integer('tanggal_pemesanan');
+            $table->integer('jam_mulai');
+            $table->integer('jam_selesai');
             $table->integer('ongkir');
             $table->integer('total_biaya');
             $table->unsignedBigInteger('status_penyewaan_id')->nullable();

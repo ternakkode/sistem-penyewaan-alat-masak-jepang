@@ -22,4 +22,13 @@ class Menu extends Model
     public function penyewaan() {
         return $this->belongsToMany('App\Model\Penyewaan');
     }
+
+    public function foto() {
+        return $this->hasMany('App\Model\MenuFoto');
+    }
+
+    public function keranjang() {
+        return $this->belongsToMany('App\Model\User', 'keranjang', 'menu_id', 'user_id')->withPivot('qty');
+    }
+
 }

@@ -14,4 +14,8 @@ class Alat extends Model
     public function menu() {
         return $this->belongsToMany('App\Model\Menu');
     }
+
+    public function penyewaan() {
+        return $this->belongsToMany('App\Model\Penyewaan', 'penyewaan_alat', 'penyewaan_id', 'alat_id')->withPivot('jumlah');
+    }
 }
