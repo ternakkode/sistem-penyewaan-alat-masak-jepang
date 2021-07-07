@@ -33,14 +33,9 @@
                                                 <input type="date" name="tanggal_pemesanan" placeholder="">
                                             </label>
                                         </li>
-                                        <li class="col-md-6">
+                                        <li class="col-md-12">
                                             <label>Jam Mulai
                                                 <input type="number" min="8" max="21" name="jam_mulai" placeholder="">
-                                            </label>
-                                        </li>
-                                        <li class="col-md-6">
-                                            <label>Jam Selesai
-                                                <input type="number" min="9" max="24" name="jam_selesai">
                                             </label>
                                         </li>
                                     </ul>

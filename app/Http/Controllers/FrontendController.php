@@ -103,7 +103,7 @@ class FrontendController extends Controller
         $penyewaan->alamat = $request->input('alamat');
         $penyewaan->tanggal_pemesanan = $request->input('tanggal_pemesanan');
         $penyewaan->jam_mulai = $request->input('jam_mulai');
-        $penyewaan->jam_selesai = $request->input('jam_selesai');
+        $penyewaan->jam_selesai = $penyewaan->mulai + 2;
         $penyewaan->total_biaya = 0;
         
         $penyewaan->status_penyewaan_id = 94;
@@ -141,7 +141,7 @@ class FrontendController extends Controller
 
         $penyewaan->menu()->attach($menuPenyewaan);
 
-        auth()->user()->keranjang()->delete();
+        auth()->user()->keranjang()->detach();
 
         return redirect('order');
     }
