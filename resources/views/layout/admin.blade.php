@@ -120,26 +120,11 @@
                                 </ul>
                             </div>
                         </li>
-						<li class="nav-item">
-                            <a data-toggle="collapse" href="#penyewaan">
+                        <li class="nav-item">
+                            <a href="{{ url('admin/penyewaan') }}">
                                 <i class="fas fa-wallet"></i>
                                 <p>Kelola Penyewaan</p>
-                                <span class="caret"></span>
                             </a>
-                            <div class="collapse" id="penyewaan">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="components/avatars.html">
-                                            <span class="sub-item">Data Penyewaan</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/buttons.html">
-                                            <span class="sub-item">Konfirmasi Pembayaran</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>

@@ -62,33 +62,6 @@
                                         <p class="all-total">Total Biaya <span> Rp {{ $totalBelanjaan }}</span></p>
                                     </div>
                                     <div class="pay-meth">
-                                        <ul>
-                                            @foreach($pengirimans as $pengiriman)
-                                            <li>
-                                                <div class="radio">
-                                                    <input type="radio" name="pengiriman" value="{{ $pengiriman->id }}"
-                                                        checked>
-                                                    <label for="radio1">{{ $pengiriman->nama }}</label>
-                                                </div>
-                                                @if ($pengiriman->nama == 'DIKIRIM')
-                                                <p>Pengiriman hanya untuk daerah Kota Probolinggo dan ada tambahan biaya
-                                                    Rp. 20000</p>
-                                                @endif
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                        <ul>
-                                            @foreach ($pembayarans as $pembayaran)
-                                            <li>
-                                                <div class="radio">
-                                                    <input type="radio" name="pembayaran" value="{{ $pembayaran->id }}"
-                                                        checked>
-                                                    <label for="radio1">{{ $pembayaran->nama }}</label>
-                                                </div>
-                                                <p>{{ $pembayaran->instruksi }}</p>
-                                            </li>
-                                            @endforeach
-                                        </ul>
                                         <button type="submit" class="btn btn-dark pull-right margin-top-30">Buat
                                             Pesanan</button>
                                     </div>

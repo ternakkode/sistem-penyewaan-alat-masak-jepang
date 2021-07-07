@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class StatusPenyewaan extends Model
 {
 
-    protected $table = 'penyewaan';
+    protected $table = 'status_penyewaan';
     protected $guarded = [];
     public $timestamps = false;
 

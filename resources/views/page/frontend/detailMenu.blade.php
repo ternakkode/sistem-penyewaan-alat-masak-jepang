@@ -65,33 +65,6 @@
                     </div>
                 </div>
             </form>
-
-            <!--======= PRODUCT DESCRIPTION =========-->
-            <div class="item-decribe">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
-                    <li role="presentation" class="active"><a href="#review" role="tab" data-toggle="tab">REVIEW
-                            (03)</a></li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
-                    <!-- REVIEW -->
-                    <div role="tabpanel" class="tab-pane fade in active" id="review">
-                        <h6>Review Pembelian Produk</h6>
-                        @foreach ($reviews as $review)
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="font-playfair">{{ $review->komentar }}</p>
-                                <h6>{{ $review->penyewaan->user->nama }}</h6>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-
-                    <!-- TAGS -->
-                    <div role="tabpanel" class="tab-pane fade" id="tags"> </div>
-                </div>
             </div>
         </div>
     </section>

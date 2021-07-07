@@ -10,19 +10,19 @@
                     <ul class="row">
                         <!-- PRODUCTS -->
                         <li class="col-sm-2 text-left">
-                            <h6>PRODUCTS</h6>
+                            <h6>Produk</h6>
                         </li>
                         <!-- NAME -->
                         <li class="col-sm-4 text-left">
-                            <h6>NAME</h6>
+                            <h6>Nama</h6>
                         </li>
                         <!-- PRICE -->
                         <li class="col-sm-2">
-                            <h6>PRICE</h6>
+                            <h6>Harga Satuan</h6>
                         </li>
                         <!-- QTY -->
                         <li class="col-sm-1">
-                            <h6>QTY</h6>
+                            <h6>Jumlah</h6>
                         </li>
 
                         <!-- TOTAL PRICE -->
@@ -65,12 +65,7 @@
                     <!-- QTY -->
                     <li class="col-sm-1">
                         <div class="position-center-center">
-                            <div class="quinty">
-                                <!-- QTY -->
-                                <select class="selectpicker" disabled>
-                                    <option>{{ $keranjang->pivot->qty }}</option>
-                                </select>
-                            </div>
+                            <span class="price">{{ $keranjang->pivot->qty }}</span>
                         </div>
                     </li>
 

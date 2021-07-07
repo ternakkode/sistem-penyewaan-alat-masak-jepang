@@ -63,7 +63,6 @@
                             <ul class="nav">
                                 <li><a href="{{ url('/') }}">Home</a></li>
                                 <li> <a href="{{ url('/menu') }}">Menu </a> </li>
-                                <li> <a href="{{ url('/tools') }}">Ketersediaan Alat </a> </li>
                                 @if (!auth()->check())
                                     <li> <a href="{{ url('/login') }}">Masuk </a> </li>
                                     <li> <a href="{{ url('/register') }}">Registrasi </a> </li>
@@ -85,7 +84,6 @@
                                             <h6>Halo, {{ auth()->user()->nama }}</h6>
                                         </li>
                                         <li><a href="#">Order Saya</a></li>
-                                        <li><a href="#">Konfirmasi Pembayaran</a></li>
                                         <li><a href="{{ url('logout') }}">Keluar</a></li>
                                     </ul>
                                 </li>

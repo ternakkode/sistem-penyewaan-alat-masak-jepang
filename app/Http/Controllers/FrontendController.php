@@ -7,7 +7,6 @@ use App\Model\Menu;
 use App\Model\Pembayaran;
 use App\Model\Penyewaan;
 use App\Model\Pengiriman;
-use App\Model\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -29,11 +28,6 @@ class FrontendController extends Controller
     public function detailMenu($menuId) {
         $payload['menu'] = Menu::find($menuId);
         if (!$payload['menu']) return redirect('menu');
-        $payload['reviews'] = Review::whereHas('penyewaan', function ($query) use ($payload){
-            $query->whereHas('menu', function ($q) use($payload) {
-                $q->where('menu.id', $payload['menu']->id);
-            });
-        })->get();
         
         return view('page/frontend/detailMenu', $payload);
     }
@@ -97,9 +91,6 @@ class FrontendController extends Controller
             $payload['totalBelanjaan'] += $keranjang->pivot->qty * $keranjang->harga;
         }
 
-        $payload['pengirimans'] = Pengiriman::all();
-        $payload['pembayarans'] = Pembayaran::all();
-
         return view('page/frontend/checkout', $payload);
     }
 
@@ -110,21 +101,12 @@ class FrontendController extends Controller
         $penyewaan->nama = $request->input('nama');
         $penyewaan->no_telefon = $request->input('no_telefon');
         $penyewaan->alamat = $request->input('alamat');
-        $penyewaan->pengiriman_id = $request->input('pengiriman');
-        $penyewaan->pembayaran_id = $request->input('pembayaran');
         $penyewaan->tanggal_pemesanan = $request->input('tanggal_pemesanan');
         $penyewaan->jam_mulai = $request->input('jam_mulai');
         $penyewaan->jam_selesai = $request->input('jam_selesai');
-        $penyewaan->ongkir = $penyewaan->pengiriman_id == 1 ? 20000 : 0;
         $penyewaan->total_biaya = 0;
         
-        // fetch status order
-        $statusPenyewaanId = 96;
-        if ($penyewaan->pembayaran_id == 1) {
-            $statusPenyewaanId = 11;
-        }
-
-        $penyewaan->status_penyewaan_id = $statusPenyewaanId;
+        $penyewaan->status_penyewaan_id = 94;
         $penyewaan->save();
 
         // count total amount should paid, add detail menu ordered, add used alat to order
@@ -160,5 +142,19 @@ class FrontendController extends Controller
         $penyewaan->menu()->attach($menuPenyewaan);
 
         auth()->user()->keranjang()->delete();
+
+        return redirect('order');
+    }
+
+    public function order() {
+        $payload['penyewaans'] = Penyewaan::where('user_id', auth()->user()->id)->get();
+
+        return view('page/frontend/orders', $payload);
+    }
+
+    public function detailOrder($id) {
+        $payload['penyewaan'] = Penyewaan::find($id);
+
+        return view('page/frontend/detail_order', $payload);
     }
 }
